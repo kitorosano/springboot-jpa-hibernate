@@ -11,6 +11,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface IEmployeeJpaRepository extends JpaRepository<Employee, Long> {
     //select fileds from employee where employeeid='[param]'
     Optional<Employee> findByEmployeeid(String employeeid);
-    // List<Employee> findByLastName(String lastName);
-    List<Employee> findByRole(Role role);
+    List<Employee> findByLastName(String lastName);
 }

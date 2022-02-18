@@ -19,7 +19,7 @@ La API REST de la aplicación se explica a continuación
 | /employees                | Crear nuevo empleado  | Listar empleados                      | Error                                   | Eliminar todos los empleados  |
 | /employees/1              | Error                 | Mostrar empleado                      | Modificar empleado. Si no existe error  | Eliminar empleado             |
 | /employees?employeeid=a32 | Error                 | Mostrar empleado por su identificador | Error                                   | Error                         |
-| /employees?role=admin     | Error                 | Listar empleados por su rol           | Error                                   | Error                         |
+| /employees?lastName=abc   | Error                 | Listar empleados por su apellido      | Error                                   | Error                         |
 | .                         |                       |                                       |                                         |                               |
 | /projects                 | Crear nuevo proyecto  | Listar proyectos                      | Error                                   | Eliminar todos los proyectos  |
 | /projects/1               | Error                 | Mostrar proyecto                      | Modificar proyecto. Si no existe error  | Eliminar proyecto             |

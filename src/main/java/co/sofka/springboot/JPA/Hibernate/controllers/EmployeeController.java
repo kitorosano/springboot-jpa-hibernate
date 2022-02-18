@@ -102,12 +102,12 @@ public class EmployeeController {
   }
   
   /**
-  * Metodo para obtener una lista de objetos Employee mediante su rol
+  * Metodo para obtener una lista de objetos Employee mediante su apellido
   * @return Un response exitoroso con el listado de empleados, o un response vacio por no haber encontrado el empleado con su employeeid.
   */
-  @GetMapping(value = "/employees", params = "role")
-  public ResponseEntity<List<Employee>> getEmployeeByRole(@RequestParam(value = "role") Role role) {
-    List<Employee> employeeData = employeeRepository.findByRole(role);
+  @GetMapping(value = "/employees", params = "lastName")
+  public ResponseEntity<List<Employee>> getEmployeeByLastName(@RequestParam(value = "lastName") String lastName) {
+    List<Employee> employeeData = employeeRepository.findByLastName(lastName);
     try {
       if (employeeData.isEmpty()) return new ResponseEntity<>(HttpStatus.NO_CONTENT);
       
