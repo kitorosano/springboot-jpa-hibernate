@@ -91,7 +91,7 @@ public class EmployeeController {
   * @return Un response exitoroso con el empleado, o un response vacio por no haber encontrado el empleado con su employeeid.
   */
   @GetMapping(value = "/employees", params = "employeeid")
-  public ResponseEntity<Employee> getEmployeeById(@RequestParam(value = "employeeid") String employeeid) {
+  public ResponseEntity<Employee> getEmployeeByEmployeeId(@RequestParam(value = "employeeid") String employeeid) {
     Optional<Employee> employeeData = employeeRepository.findByEmployeeid(employeeid);
     
     if (employeeData.isPresent()) {
@@ -159,7 +159,6 @@ public class EmployeeController {
   
   /**
   * Metodo para eliminar todos los employeees
-  * @param title
   * @return Un response exitoso con un mensaje si se han eliminado correctamente, o un response fallido.
   */
   @DeleteMapping("/employees")
