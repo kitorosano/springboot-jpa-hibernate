@@ -102,8 +102,8 @@ public class EmployeeController {
   }
   
   /**
-  * Metodo para obtener un objeto Employee mediante su rol
-  * @return Un response exitoroso con el empleado, o un response vacio por no haber encontrado el empleado con su employeeid.
+  * Metodo para obtener una lista de objetos Employee mediante su rol
+  * @return Un response exitoroso con el listado de empleados, o un response vacio por no haber encontrado el empleado con su employeeid.
   */
   @GetMapping(value = "/employees", params = "role")
   public ResponseEntity<List<Employee>> getEmployeeByRole(@RequestParam(value = "role") Role role) {
