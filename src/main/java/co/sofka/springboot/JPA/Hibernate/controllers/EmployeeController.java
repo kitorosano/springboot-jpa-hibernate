@@ -85,7 +85,38 @@ public class EmployeeController {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
   }
-
+  
+  /**
+  * Metodo para obtener un objeto Employee mediante su employeeid
+  * @return Un response exitoroso con el empleado, o un response vacio por no haber encontrado el empleado con su employeeid.
+  */
+  @GetMapping(value = "/employees", params = "employeeid")
+  public ResponseEntity<Employee> getEmployeeById(@RequestParam(value = "employeeid") String employeeid) {
+    Optional<Employee> employeeData = employeeRepository.findByEmployeeid(employeeid);
+    
+    if (employeeData.isPresent()) {
+      return new ResponseEntity<>(employeeData.get(), HttpStatus.OK);
+    } else {
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+  }
+  
+  /**
+  * Metodo para obtener un objeto Employee mediante su rol
+  * @return Un response exitoroso con el empleado, o un response vacio por no haber encontrado el empleado con su employeeid.
+  */
+  @GetMapping(value = "/employees", params = "role")
+  public ResponseEntity<List<Employee>> getEmployeeByRole(@RequestParam(value = "role") Role role) {
+    List<Employee> employeeData = employeeRepository.findByRole(role);
+    try {
+      if (employeeData.isEmpty()) return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+      
+      return new ResponseEntity<>(employeeData, HttpStatus.OK);
+    } catch (Exception e) {
+      return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
+    }
+  }
+  
   // ========== UPDATE ========== //
   
   /**
